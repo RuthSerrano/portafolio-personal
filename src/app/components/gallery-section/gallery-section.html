@@ -1,0 +1,84 @@
+<section id="gallery" class="portfolio section">
+  <div class="container section-title">
+    <h2>Fotografía</h2>
+    <p>Una secuencia visual de nueve fotografías.</p>
+  </div>
+
+  <div class="container">
+    <h3 class="gallery-group-title">Secuencia principal</h3>
+    <div class="row gy-4">
+      @for (photo of sequence; track photo.src; let index = $index) {
+        <div class="col-lg-4 col-md-6">
+          <button
+            class="photo-card"
+            type="button"
+            [attr.aria-label]="'Ampliar ' + photo.title"
+            (click)="open(index, $event)"
+          >
+            <span class="photo-frame">
+              @if (failedImages().has(photo.src)) {
+                <span class="photo-error" role="status">No se pudo cargar esta fotografía.</span>
+              } @else {
+                <img
+                  [ngSrc]="photo.src"
+                  fill
+                  [alt]="photo.alt"
+                  (error)="markImageFailed(photo.src)"
+                >
+              }
+            </span>
+            <span class="photo-title">{{ photo.title }}</span>
+          </button>
+        </div>
+      }
+    </div>
+
+  </div>
+
+  @if (activePhoto(); as photo) {
+    <div class="lightbox-backdrop" role="presentation" (click)="close()" (keydown)="handleDialogKeydown($event)">
+      <div
+        #dialog
+        class="lightbox-dialog"
+        role="dialog"
+        aria-modal="true"
+        [attr.aria-label]="'Visor de imágenes: ' + photo.title"
+        (click)="$event.stopPropagation()"
+      >
+        <div class="lightbox-toolbar">
+          <p aria-live="polite">{{ photo.title }} · {{ (activeIndex() ?? 0) + 1 }} de {{ photos.length }}</p>
+          <button
+            #closeButton
+            class="lightbox-control"
+            type="button"
+            aria-label="Cerrar fotografía"
+            (click)="close()"
+          >
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="lightbox-view">
+          <button class="lightbox-control navigation-control" type="button" aria-label="Fotografía anterior" (click)="move(-1)">
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+          </button>
+          <div class="lightbox-image">
+            @if (failedImages().has(photo.src)) {
+              <p class="photo-error" role="status">No se pudo cargar esta fotografía.</p>
+            } @else {
+              <img
+                [ngSrc]="photo.src"
+                fill
+                [alt]="photo.alt"
+                (error)="markImageFailed(photo.src)"
+              >
+            }
+          </div>
+          <button class="lightbox-control navigation-control" type="button" aria-label="Fotografía siguiente" (click)="move(1)">
+            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</section>

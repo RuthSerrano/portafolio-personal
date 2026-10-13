@@ -1,1 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background-color: #f7faf7;
+  --default-color: #24332c;
+  --heading-color: #183d30;
+  --accent-color: #26734d;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+  --nav-color: #e0eee6;
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #173a2e;
+  --nav-dropdown-background-color: #173a2e;
+  --nav-dropdown-color: #e0eee6;
+  --nav-dropdown-hover-color: #ffffff;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  background: var(--background-color);
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid #f2bd52;
+  outline-offset: 3px;
+}
+
+.dark-background {
+  --background-color: #173a2e;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #214c3c;
+  --contrast-color: #ffffff;
+}
+
+.section {
+  scroll-margin-top: 1rem;
+}
+
+.section-title h2 {
+  color: var(--heading-color);
+}
+
+.main {
+  min-height: 70vh;
+}
+
+@media (min-width: 1200px) {
+  app-navigation ~ .main,
+  app-navigation ~ .footer {
+    margin-left: 300px;
+  }
+}
+
+@media (max-width: 1199px) {
+  app-navigation ~ .main,
+  app-navigation ~ .footer {
+    margin-left: 0;
+  }
+}
+
+.loading-state,
+.load-error {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.load-error {
+  align-items: flex-start;
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer a {
+  color: #1c6843;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: #12472e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,24 +1,42 @@
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
 describe('App', () => {
+  let httpTesting: HttpTestingController;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-    })
-      .compileComponents();
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
+    httpTesting = TestBed.inject(HttpTestingController);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  afterEach(() => {
+    httpTesting.verify();
   });
 
-  it('should render title', async () => {
+  it('loads and renders curriculum data from the JSON file', async () => {
     const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+
+    const request = httpTesting.expectOne('./data/cv.json');
+    request.flush({
+      nombre: 'Ruth Serrano Nina',
+      presentacion: 'Presentación de prueba.',
+      formacionAcademica: [],
+      habilidades: [],
+      objetivosAprendizaje: [],
+      objetivoProfesional: 'Objetivo profesional de prueba.',
+      correo: 'serranoninaruth@gmail.com',
+      proyectos: [],
+    });
     await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, portafolio-personal');
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('h1')?.textContent).toContain('Ruth Serrano Nina');
+    expect(fixture.nativeElement.querySelector('a[href="mailto:serranoninaruth@gmail.com"]')).toBeTruthy();
   });
 });

@@ -1,59 +1,50 @@
-# PortafolioPersonal
+# Portafolio personal de Ruth Serrano Nina
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+Portafolio adaptable desarrollado con Angular 22. Los datos del currículum se cargan desde un archivo JSON local; no requiere backend ni base de datos.
 
-## Development server
+## Instalación
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Requiere Node.js y npm. Desde la raíz del proyecto:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Ejecución local
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Abre la URL que Angular CLI muestra en la terminal (por defecto, `http://localhost:4200/`).
 
-To build the project run:
+## Compilación
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos compilados se generan en `dist/`.
 
-## Running unit tests
+## Currículum
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Los datos se cargan desde [`public/data/cv.json`](public/data/cv.json). Edita ese archivo para actualizar el nombre, la presentación, la formación académica, las habilidades, los objetivos de aprendizaje y profesionales, el correo o los proyectos. La forma de los datos está tipada en `src/app/models/curriculum.model.ts`.
 
-```bash
-ng test
-```
+## Fotografías
 
-## Running end-to-end tests
+Las fotografías locales están en `public/fotos/`:
 
-For end-to-end (e2e) testing, run:
+- `Foto1.jpg` a `Foto9.jpg`: secuencia principal en el orden original.
+- `Foto.jpeg`: foto de perfil.
+- `Cochabamba.jpeg`: fondo de portada.
+- `Foto10.jpeg` y `Foto11.jpeg` se conservan como archivos originales, pero no se muestran en la galería.
 
-```bash
-ng e2e
-```
+Mantén los nombres, mayúsculas y extensiones de archivo al reemplazar las imágenes.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Plantilla y créditos
 
-## Additional Resources
+El diseño parte de la plantilla [iPortfolio de BootstrapMade](https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/). Se conservan sus créditos y el enlace a la [licencia de BootstrapMade](https://bootstrapmade.com/license/). Se usan Bootstrap, Bootstrap Icons y el CSS principal de la plantilla, copiados selectivamente a `public/plantilla/`. Las fotografías originales de `public/fotos/` se mantienen como recursos locales.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Publicación en GitHub Pages
+
+El documento y las solicitudes de datos y recursos usan rutas relativas para admitir una publicación bajo una ruta de proyecto. La compilación está preparada; este proyecto todavía no se ha publicado.

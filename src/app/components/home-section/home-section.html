@@ -1,0 +1,21 @@
+<section id="home" class="hero section dark-background">
+  <img
+    class="hero-photo"
+    ngSrc="./fotos/Cochabamba.jpeg"
+    fill
+    priority
+    alt="Vista de Cochabamba que sirve como fondo de la portada."
+  >
+  <div class="container hero-content">
+    <h1>{{ cv().nombre }}</h1>
+    <p>{{ cv().presentacion }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-light" href="#resume">
+        <i class="bi bi-file-earmark-text me-2" aria-hidden="true"></i>Ver currículum
+      </a>
+      <a class="btn btn-outline-light" href="#gallery">
+        <i class="bi bi-images me-2" aria-hidden="true"></i>Ver fotografías
+      </a>
+    </div>
+  </div>
+</section>

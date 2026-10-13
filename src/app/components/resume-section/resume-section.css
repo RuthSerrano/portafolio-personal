@@ -1,0 +1,96 @@
+.section-title {
+  padding-bottom: 1.5rem;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+.resume-card {
+  min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border: 1px solid #e0e9e2;
+  border-radius: 0.75rem;
+  background: var(--surface-color);
+  box-shadow: 0 0.5rem 1.5rem rgb(24 61 48 / 6%);
+}
+
+.resume-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.1rem;
+  color: var(--heading-color);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.resume-card h3 i {
+  color: var(--accent-color);
+  font-size: 1.15rem;
+}
+
+.education-card {
+  grid-row: span 2;
+}
+
+.resume-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.resume-entry {
+  padding-left: 1rem;
+  border-left: 2px solid #b8d2c0;
+}
+
+.resume-entry h4 {
+  margin: 0 0 0.35rem;
+  color: var(--heading-color);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.resume-entry p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.resume-entry .resume-detail {
+  margin-top: 0.15rem;
+  color: #53645a;
+}
+
+.resume-bullet-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.resume-bullet-list li {
+  padding-left: 0.15rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.resume-bullet-list li::marker {
+  color: var(--accent-color);
+}
+
+@media (max-width: 767px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-card {
+    grid-row: auto;
+  }
+}

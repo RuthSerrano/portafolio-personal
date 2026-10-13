@@ -1,0 +1,40 @@
+<header class="header dark-background d-flex flex-column" [class.header-show]="menuOpen()">
+  <button
+    #menuToggle
+    class="header-toggle d-xl-none"
+    type="button"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="primary-navigation"
+    [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+    (click)="toggleMenu()"
+    (keydown.escape)="closeMenu(menuToggle)"
+  >
+    <i class="bi" [class.bi-list]="!menuOpen()" [class.bi-x-lg]="menuOpen()" aria-hidden="true"></i>
+  </button>
+
+  <div class="profile-img">
+    <img
+      ngSrc="./fotos/Foto.jpeg"
+      fill
+      priority
+      alt="Foto de perfil de Ruth Serrano Nina"
+    >
+  </div>
+
+  <a class="logo d-flex align-items-center justify-content-center" href="#home" (click)="closeMenu(menuToggle)">
+    <span class="sitename">Ruth Serrano Nina</span>
+  </a>
+
+  <nav id="primary-navigation" class="navmenu" aria-label="Navegación principal">
+    <ul>
+      @for (link of links(); track link.target) {
+        <li>
+          <a [href]="'#' + link.target" (click)="closeMenu(menuToggle)">
+            <i [class]="'bi navicon ' + link.icon" aria-hidden="true"></i>
+            <span>{{ link.label }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</header>

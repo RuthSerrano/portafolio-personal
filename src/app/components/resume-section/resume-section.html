@@ -1,0 +1,43 @@
+<section id="resume" class="resume section light-background">
+  <div class="container section-title">
+    <h2>Currículum</h2>
+    <p>Formación, habilidades y próximos aprendizajes.</p>
+  </div>
+
+  <div class="container resume-grid">
+    <section class="resume-card education-card" aria-labelledby="education-heading">
+      <h3 id="education-heading"><i class="bi bi-mortarboard" aria-hidden="true"></i>Formación académica</h3>
+      <div class="resume-list">
+        @for (education of cv().formacionAcademica; track education.titulo) {
+          <article class="resume-entry">
+            <h4>{{ education.titulo }}</h4>
+            @if (education.institucion) {
+              <p>{{ education.institucion }}</p>
+            }
+            @if (education.detalle) {
+              <p class="resume-detail">{{ education.detalle }}</p>
+            }
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="resume-card" aria-labelledby="skills-heading">
+      <h3 id="skills-heading"><i class="bi bi-palette" aria-hidden="true"></i>Habilidades</h3>
+      <ul class="resume-bullet-list">
+        @for (skill of cv().habilidades; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </section>
+
+    <section class="resume-card" aria-labelledby="learning-heading">
+      <h3 id="learning-heading"><i class="bi bi-compass" aria-hidden="true"></i>Objetivos de aprendizaje</h3>
+      <ul class="resume-bullet-list">
+        @for (objective of cv().objetivosAprendizaje; track objective) {
+          <li>{{ objective }}</li>
+        }
+      </ul>
+    </section>
+  </div>
+</section>

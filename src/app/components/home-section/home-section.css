@@ -1,0 +1,56 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(3rem, 8vh, 6rem) 0;
+}
+
+.hero::before {
+  background: linear-gradient(90deg, rgb(10 37 27 / 86%), rgb(10 37 27 / 56%));
+}
+
+.hero .hero-photo {
+  object-position: center;
+}
+
+.hero-content {
+  max-width: 65rem;
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
+}
+
+.hero h1 {
+  max-width: 14ch;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.hero p {
+  max-width: 48rem;
+  margin-top: 1.25rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.65;
+  border: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.75rem;
+}
+
+.hero-actions .btn {
+  min-height: 2.9rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 575px) {
+  .hero-content {
+    padding-inline: 1.5rem;
+  }
+
+  .hero h1 {
+    max-width: 12ch;
+  }
+}

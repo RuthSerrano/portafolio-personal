@@ -1,0 +1,22 @@
+{
+  "nombre": "Ruth Serrano Nina",
+  "presentacion": "Soy Ruth Serrano Nina, estudiante de sexto semestre de Ingeniería de Sistemas en la Universidad Privada Franz Tamayo (UNIFRANZ). Tengo facilidad para el diseño y busco fortalecer mi formación en diseño de interfaces y desarrollo web. Mi objetivo es aplicar estos conocimientos en proyectos académicos y prepararme para el ejercicio profesional.",
+  "formacionAcademica": [
+    {
+      "titulo": "Ingeniería de Sistemas",
+      "institucion": "Universidad Privada Franz Tamayo (UNIFRANZ)",
+      "detalle": "Sexto semestre, en curso."
+    },
+    {
+      "titulo": "Educación secundaria concluida"
+    }
+  ],
+  "habilidades": ["Facilidad para el diseño y la presentación visual."],
+  "objetivosAprendizaje": [
+    "Profundizar en diseño de interfaces y desarrollo web.",
+    "Aprender inglés y portugués."
+  ],
+  "objetivoProfesional": "Mi objetivo es concluir la carrera de Ingeniería de Sistemas y ampliar mis conocimientos en el área tecnológica. Busco desarrollar experiencia mediante proyectos académicos y fortalecer mis habilidades de diseño y desarrollo web para prepararme para futuras oportunidades laborales.",
+  "correo": "serranoninaruth@gmail.com",
+  "proyectos": []
+}
